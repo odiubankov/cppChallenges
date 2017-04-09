@@ -2,37 +2,33 @@
 #ifndef MEYERSEXAMPLES_POORPIGS_H
 #define MEYERSEXAMPLES_POORPIGS_H
 
+#include <iostream>
+#include <cmath>
+
+using namespace std;
 
 namespace poorpigs {
 
-    class Solution {
+    unsigned power( unsigned val, unsigned pow )
+    {
+        if ( pow == 0 )
+        {
+            return 1;
+        }
+
+        return val * power(val, pow - 1);
+    }
+
+    class Solution
+    {
     public:
         int poorPigs(int buckets, int minutesToDie, int minutesToTest)
         {
-            if (buckets == 1)
+            auto attemptsCnt = static_cast<unsigned >(minutesToTest / minutesToDie);
+            for (auto i = 1u;; ++i)
             {
-                return 0;
-            }
-
-            for (int pigsCnt = 1;; ++pigsCnt)
-            {
-                int actualPigsCnt = pigsCnt;
-                int bucketsLeft = buckets;
-                for (int i = 1; i * minutesToDie <= minutesToTest && actualPigsCnt > 0; ++i, --actualPigsCnt)
-                {
-                    int newBucketsCnt = bucketsLeft / (actualPigsCnt + 1);
-                    if (bucketsLeft % (actualPigsCnt + 1) != 0)
-                    {
-                        ++newBucketsCnt;
-                    }
-
-                    bucketsLeft = newBucketsCnt;
-                }
-
-                if ((bucketsLeft - 2) <= actualPigsCnt)
-                {
-                    return pigsCnt;
-                }
+                if (buckets <= power(attemptsCnt + 1, i))
+                    return i;
             }
         }
     };
