@@ -13,24 +13,29 @@ add_subdirectory(libs/googletest)
 include_directories(libs/googletest/googletest/include)
 
 set(SOURCE_FILES
+        async/AsyncLogger.h /
+        async/AsyncLogger.cpp /
+
+        async/tests/AsyncLoggerTest.cpp /
+
         effectivecpp/ArraySize.h /
         effectivecpp/UnivRefOverload.h /
-
-        effectivecpp/tests/UnivRefOverload.cpp /
-        effectivecpp/tests/ArraySize.cpp /
 
         ostd/tests/Vector.cpp /
         ostd/Vector.h /
         ostd/UniquePtr.h /
-        ostd/tests/UniquePtr.cpp /
         ostd/SharedPtr.h /
-        ostd/tests/SharedPtr.cpp /
         ostd/IsBaseOf.h /
-        ostd/tests/IsBaseOf.cpp /
         ostd/IsSame.h /
-        ostd/tests/IsSame.cpp /
         ostd/Distance.h /
-        ostd/tests/Distance.cpp)
+
+        effectivecpp/tests/UnivRefOverload.cpp /
+        effectivecpp/tests/ArraySize.cpp /
+        ostd/tests/UniquePtr.cpp /
+        ostd/tests/SharedPtr.cpp /
+        ostd/tests/IsBaseOf.cpp /
+        ostd/tests/IsSame.cpp /
+        ostd/tests/Distance.cpp /)
 
 add_executable(cppchallenges ${SOURCE_FILES})
 target_link_libraries(cppchallenges gtest gtest_main)

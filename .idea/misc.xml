@@ -6,8 +6,8 @@
       <file path="$PROJECT_DIR$/effectivecpp" />
       <file path="$PROJECT_DIR$/ostd" />
     </sourceRoots>
-    <libraryRoots>
+    <excludeRoots>
       <file path="$PROJECT_DIR$/libs" />
-    </libraryRoots>
+    </excludeRoots>
   </component>
 </project>
