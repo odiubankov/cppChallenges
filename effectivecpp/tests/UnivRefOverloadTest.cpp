@@ -1,4 +1,4 @@
-#include "../UnivRefOverload.h"
+#include "../UnivRefOverloadTest.h"
 #include <gtest/gtest.h>
 
 namespace effectivecpp
@@ -6,15 +6,13 @@ namespace effectivecpp
 
 TEST(UnivRefOverload, forwardConstructorIsCalled)
 {
-    DerivedSFINAE derived(int
-    {}, int{});
+    DerivedSFINAE derived(0, 0);
     ASSERT_TRUE(derived._forwardConstructorIsCalled);
 }
 
 TEST(UnivRefOverload, defaultCopyConstructorIsCalled)
 {
-    DerivedSFINAE derived(int
-    {}, int{});
+    DerivedSFINAE derived(0, 0);
     derived._forwardConstructorIsCalled = false;
 
     DerivedSFINAE derivedCopy{derived};

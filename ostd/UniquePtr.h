@@ -37,7 +37,7 @@ public:
         : _rawPtr{rawPtr}
     {}
 
-    explicit UniquePtr(UniquePtr<T> &&other) noexcept
+    UniquePtr(UniquePtr<T> &&other) noexcept
         : _rawPtr{other._rawPtr}
     {
         other._rawPtr = nullptr;
@@ -55,6 +55,9 @@ public:
     {
         reset();
     }
+
+    UniquePtr(const UniquePtr<T>&) = delete;
+    UniquePtr<T>& operator=(const UniquePtr<T>&) = delete;
 
     T *get() const noexcept
     {

@@ -30,7 +30,7 @@ public:
     Base(int, int)
     {}
 
-    Base(std::string)
+    explicit Base(const std::string&)
     {}
 };
 
@@ -41,7 +41,7 @@ public:
         typename T,
         typename... Args,
         typename = typename std::enable_if_t<!std::is_same<DerivedSFINAE, typename std::decay_t<T>>::value>>
-    DerivedSFINAE(T &&arg, Args &&... args)
+    explicit DerivedSFINAE(T &&arg, Args &&... args)
         : Base{std::forward<T>(arg), std::forward<Args>(args)...}
     {
         _forwardConstructorIsCalled = true;

@@ -50,6 +50,8 @@ public:
     }
 
     Vector(Vector &&other) noexcept
+    : _size{other._size}
+    , _capacity{other._capacity}
     {
         move_from_other(std::move(other));
     }

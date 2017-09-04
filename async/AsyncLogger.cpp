@@ -1,8 +1,7 @@
 #include "AsyncLogger.h"
 
-namespace
-{
-static const std::string STOP_LOGGING_MSG = "{34EA1AB3-E76E-4C41-9F07-5803EEC9D567}";
+namespace {
+const char* STOP_LOGGING_MSG = "{34EA1AB3-E76E-4C41-9F07-5803EEC9D567}";
 }
 
 namespace async
@@ -15,11 +14,6 @@ AsyncLogger &AsyncLogger::Instance()
     static AsyncLogger asyncLogger;
     return asyncLogger;
 }
-
-AsyncLogger::AsyncLogger()
-    : _msgQueue{}, _mutex{}, _condition{}, _writingThread{[this]()
-                                                          { writeLog(); }}
-{}
 
 AsyncLogger::~AsyncLogger()
 {

@@ -18,10 +18,12 @@ set(SOURCE_FILES
 
         async/tests/AsyncLoggerTest.cpp /
 
-        effectivecpp/ArraySize.h /
+        effectivecpp/ArraySize.h
         effectivecpp/UnivRefOverload.h /
 
-        ostd/tests/Vector.cpp /
+        effectivecpp/tests/UnivRefOverloadTest.cpp /
+        effectivecpp/tests/ArraySizeTest.cpp /
+
         ostd/Vector.h /
         ostd/UniquePtr.h /
         ostd/SharedPtr.h /
@@ -29,13 +31,12 @@ set(SOURCE_FILES
         ostd/IsSame.h /
         ostd/Distance.h /
 
-        effectivecpp/tests/UnivRefOverload.cpp /
-        effectivecpp/tests/ArraySize.cpp /
-        ostd/tests/UniquePtr.cpp /
-        ostd/tests/SharedPtr.cpp /
-        ostd/tests/IsBaseOf.cpp /
-        ostd/tests/IsSame.cpp /
-        ostd/tests/Distance.cpp /)
+        ostd/tests/VectorTest.cpp /
+        ostd/tests/UniquePtrTest.cpp /
+        ostd/tests/SharedPtrTest.cpp /
+        ostd/tests/IsBaseOfTest.cpp /
+        ostd/tests/IsSameTest.cpp /
+        ostd/tests/DistanceTest.cpp /)
 
 add_executable(cppchallenges ${SOURCE_FILES})
 target_link_libraries(cppchallenges gtest gtest_main)

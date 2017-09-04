@@ -3,9 +3,9 @@
 
 namespace
 {
-static const int CONST_METHOD_VAL = 0;
+const int CONST_METHOD_VAL = 0;
 
-static const int NON_CONST_METHOD_VAL = 1;
+const int NON_CONST_METHOD_VAL = 1;
 }
 
 class TestOwnership
@@ -21,6 +21,11 @@ public:
     {
         --_ownershipCounter;
     }
+
+    TestOwnership(const TestOwnership&) = delete;
+    const TestOwnership& operator=(const TestOwnership&) = delete;
+    TestOwnership(TestOwnership&&) = delete;
+    const TestOwnership& operator=(TestOwnership&&) = delete;
 
     int getCounterVal() const
     { return _ownershipCounter; }
